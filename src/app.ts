@@ -17,6 +17,10 @@ pool.query(query, values, (err, res) => {
 
 pool.query('UPDATE "Customer".customer SET cusName = $1 WHERE cusId = $2 returning *', ['Dasun', 'C003'], (err, res) => {
     console.log(err, res);
+});
+
+pool.query('DELETE FROM "Customer".customer WHERE cusId = $1 returning *', ['C003'], (err, res) => {
+    console.log(err, res);
     pool.end();
 });
 
